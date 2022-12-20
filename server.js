@@ -49,7 +49,11 @@ app.get('/view', (req, res) => {
 
 app.get('/modify', (req, res) => {
     const { index } = req.query
-    res.render("board/modify.html")
+    const items = {
+        ...items[index],
+        index,
+    }
+    res.render("board/modify.html", { items })
 }) // view + write가 합쳐진것
 
 app.listen(3000, (req, res) => {
