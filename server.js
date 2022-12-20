@@ -20,7 +20,7 @@ app.get('/', (req, res) => {
 })
 
 app.get('/list', (req, res) => {
-    res.render("board/list.html")
+    res.render("board/list.html", { items })
 }) // 내가 데이터를 어떠한 형태로 만들래, 일단 가짜 db할것
 
 app.get('/write', (req, res) => {
