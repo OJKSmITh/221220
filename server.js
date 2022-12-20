@@ -8,7 +8,7 @@ nunjucks.configure("views", {
 })
 
 const items = [{
-    subject: "첫번쨰 게시물",
+    subject: "첫번째 게시물",
     content: "content",
     name: "name",
 },
@@ -40,6 +40,8 @@ app.get('/view', (req, res) => {
     const { index } = req.query
 
     res.render('board/view.html', { items: items[index] })
+    // res.render('board/view.html', { ... items[index] })
+
 }) // 특정 데이터 어떻게 보여줄래
 
 app.get('/modify', (req, res) => {
