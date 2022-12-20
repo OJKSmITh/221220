@@ -37,24 +37,35 @@ app.post('/write', (req, res) => {
 
 app.get('/view', (req, res) => {
     const { index } = req.query
-    const items = {
+    const item = {
         ...items[index],
         index,
     }
-    console.log(items)
-    res.render('board/view.html', { items })
+    res.render('board/view.html', { item })
     // res.render('board/view.html', { ... items[index] })
 
 }) // 특정 데이터 어떻게 보여줄래
 
 app.get('/modify', (req, res) => {
     const { index } = req.query
-    const items = {
+    const item = {
         ...items[index],
         index,
     }
-    res.render("board/modify.html", { items })
+    res.render("board/modify.html", { item })
 }) // view + write가 합쳐진것
+
+app.post('/modify', (req, res) => {
+    // const { index, subject, content, name } = req.body
+    // items[index].subject = subject
+    // items[index].content = content
+    // items[index].content = name
+
+    const { index, ...rest } = req.body // subject:'', content :'' , 
+    items[index] = rest
+    res.redirect(`view?index=${index}`)
+})
+
 
 app.listen(3000, (req, res) => {
     console.log("서버열림!")

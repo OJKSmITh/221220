@@ -14,18 +14,18 @@
         <input type="hidden" name="index" value="{{item.index}}">
         <ul>
             <li>
-                제목 : <input type="text" name="subject" value="{{items.subject}}">
+                제목 : <input type="text" name="subject" value="{{item.subject}}">
             </li>
             <li>
-                작성자 : <input type="text" name="name" value="{{items.name">
+                작성자 : <input type="text" name="name" value="{{item.name}}">
             </li>
-            <li>
+            <li>내용: <br>
                 <textarea name="content">
-                {{items.content}}
+                {{item.content}}
             </textarea>
             </li>
         </ul>
-        <button type="submit"></button>
+        <button type="submit">submit</button>
     </form>
 </body>
 
