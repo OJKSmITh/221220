@@ -37,7 +37,9 @@ app.post('/write', (req, res) => {
 
 
 app.get('/view', (req, res) => {
-    res.render('board/view.html')
+    const { index } = req.query
+
+    res.render('board/view.html', { subject: items[index].subject, name: items[index].name, content: items[index].content })
 }) // 특정 데이터 어떻게 보여줄래
 
 app.get('/modify', (req, res) => {
