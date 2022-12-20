@@ -11,8 +11,9 @@ app.get('/', (req, res) => {
     const { name } = req.query
     res.render("index.html", { name })
 })
-app.get('/', (req, res) => {
-    res.render("list.html")
+
+app.get('/list', (req, res) => {
+    res.render("board/list.html")
 })
 
 app.listen(3000, (req, res) => {
