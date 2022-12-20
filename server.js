@@ -1,8 +1,15 @@
 const express = require("express")
+const nunjucks = require("nunjucks")
 const app = express()
 
+app.set("view engine", "html")
+nunjucks.configure("views", {
+    express: app,
+})
+
 app.get('/', (req, res) => {
-    res.send("hi")
+    const { name } = req.query
+    res.render("index.html", { name })
 })
 
 app.listen(3000, (req, res) => {
