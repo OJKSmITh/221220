@@ -35,16 +35,20 @@ app.post('/write', (req, res) => {
     res.redirect(`/view?index=${items.length - 1}`)
 })
 
-
 app.get('/view', (req, res) => {
     const { index } = req.query
-
-    res.render('board/view.html', { items: items[index] })
+    const items = {
+        ...items[index],
+        index,
+    }
+    console.log(items)
+    res.render('board/view.html', { items })
     // res.render('board/view.html', { ... items[index] })
 
 }) // 특정 데이터 어떻게 보여줄래
 
 app.get('/modify', (req, res) => {
+    const { index } = req.query
     res.render("board/modify.html")
 }) // view + write가 합쳐진것
 
